@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mywebproject.Mapper.XiGaiMapper">
+    <resultMap id="XiGaiMap" type="com.example.mywebproject.Pojo.choiceQuestion">
+        <id column="id" property="id"/>
+        <result column="XiGaiProblem" property="question"/>
+        <result column="XiGaiA" property="selectionA"/>
+        <result column="XiGaiB" property="selectionB"/>
+        <result column="XiGaiC" property="selectionC"/>
+        <result column="XiGaiD" property="selectionD"/>
+        <result column="XiGaiAnswer" property="answer"/>
+        <result column="XiGaiExplain" property="explanation"/>
+    </resultMap>
+    <select id="selectAllQuestion" resultMap="XiGaiMap">
+        select XiGaiProblem,XiGaiA,XiGaiB,XiGaiC,XiGaiD,XiGaiAnswer,XiGaiExplain from xigai;
+    </select>
+    <select id="selectAllQuestionCount" resultType="integer">
+        select count(*) from xigai;
+    </select>
+    <insert id="addQuestion">
+        insert into xigai (XiGaiProblem, XiGaiA, XiGaiB, XiGaiC, XiGaiD, XiGaiAnswer, XiGaiExplain) values
+        (#{question},#{selectionA},#{selectionB},#{selectionC},#{selectionD}, #{answer}, #{explanation})
+    </insert>
+    <select id="selectQuestionByName" resultMap="XiGaiMap">
+        select XiGaiProblem,XiGaiA,XiGaiB,XiGaiC,XiGaiD,XiGaiAnswer,XiGaiExplain from xigai
+        <where>
+            XiGaiProblem like concat('%',#{question},'%')
+        </where>
+    </select>
+    <delete id="deleteQuestionByName">
+        delete from xigai where XiGaiProblem = #{question};
+    </delete>
+    <update id="updateQuestion">
+        update xigai
+        <set>
+            XiGaiProblem = #{question},
+            XiGaiA = #{selectionA},
+            XiGaiB = #{selectionB},
+            XiGaiC = #{selectionC},
+            XiGaiD = #{selectionD},
+            XiGaiAnswer = #{answer},
+            XiGaiExplain = #{explanation}
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+    <select id="selectIdByName" resultType="integer">
+        select id from xigai where XiGaiProblem = #{questionName}
+    </select>
+</mapper>

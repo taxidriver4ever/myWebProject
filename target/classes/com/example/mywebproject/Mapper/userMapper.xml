@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mywebproject.Mapper.userMapper">
+    <insert id="addMyUser">
+        insert into myuser (id, userName, userPassword, userEmail, createDate) VALUE
+        (#{id},#{userName},#{userPassword},#{userEmail},#{createDate});
+    </insert>
+    <select id="findByUserName" resultType="String">
+        select userName from myuser
+        <where>
+            userName = #{userName}
+        </where>
+    </select>
+    <select id="findByUserEmail" resultType="String">
+        select userEmail from myuser
+        <where>
+            userEmail = #{userEmail}
+        </where>
+    </select>
+</mapper>

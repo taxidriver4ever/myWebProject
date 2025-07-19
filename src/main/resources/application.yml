@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    password: 123456
+    url: jdbc:mysql://localhost:3306/mywebproject
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  mail:
+    host: smtp.qq.com            # QQ邮箱SMTP服务器地址
+    port: 465                    # SSL端口
+    username: 2571469016@qq.com  # 你的QQ邮箱地址
+    password: zotjyqxtlhjedhje   # 邮箱授权码（不是QQ密码）
+    protocol: smtps              # 使用SMTP over SSL
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: false         # 启用SSL
+            required: false
+#          starttls:
+#            enable: true         # 启用STARTTLS
+#            required: true
+        debug: true              # 开启调试模式（生产环境应关闭）# 开启调试模式（生产环境应关闭）
+  application:
+    name: my-ai
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: deepseek-r1:1.5b

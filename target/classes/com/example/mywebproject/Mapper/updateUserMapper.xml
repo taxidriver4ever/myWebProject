@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mywebproject.Mapper.updateUserMapper">
+    <update id="updateUser">
+        update myuser
+        <set>
+            userName = #{userName},
+            userPassword = #{userPassword},
+            userEmail = #{userEmail}
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+    <select id="selectUserIdByEmail" resultType="integer">
+        select id from myuser where userEmail = #{userEmail}
+    </select>
+</mapper>
