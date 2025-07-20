@@ -11,8 +11,8 @@ spring:
   mail:
     host: smtp.qq.com            # QQ邮箱SMTP服务器地址
     port: 465                    # SSL端口
-    username: 2571469016@qq.com  # 你的QQ邮箱地址
-    password: zotjyqxtlhjedhje   # 邮箱授权码（不是QQ密码）
+    username: 3887768494@qq.com  # 你的QQ邮箱地址
+    password: vvhofhzyeriwccga   # 邮箱授权码（不是QQ密码）
     protocol: smtps              # 使用SMTP over SSL
     properties:
       mail:

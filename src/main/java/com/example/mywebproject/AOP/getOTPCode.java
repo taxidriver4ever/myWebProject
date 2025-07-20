@@ -4,7 +4,6 @@ import jakarta.mail.Message;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,7 @@ public class getOTPCode {
             public void prepare(MimeMessage mimeMessage) throws Exception {
                 mimeMessage.setRecipient(Message.RecipientType.TO,
                         new InternetAddress(joinPoint.getArgs()[0].toString()));
-                mimeMessage.setFrom(new InternetAddress("2571469016@qq.com"));
+                mimeMessage.setFrom(new InternetAddress("3887768494@qq.com"));
                 mimeMessage.setText("您的验证码是" + theRes);
             }
         };
